@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_app_open_source/app/modules/home/widgets/search_movies_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -13,8 +14,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-      ),
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          title: SearchMoviesWidget()),
       body: Column(
         children: <Widget>[],
       ),
