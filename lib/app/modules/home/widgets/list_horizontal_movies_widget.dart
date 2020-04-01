@@ -43,7 +43,7 @@ class _ListHorizontalMoviesWidgetState
       child: Column(
         children: <Widget>[
           Image.network(
-              "http://image.tmdb.org/t/p/w185//5vHssUeVe25bMrof1HyaPyWgaP.jpg",
+              "http://image.tmdb.org/t/p/w500//5vHssUeVe25bMrof1HyaPyWgaP.jpg",
               height: 180),
           SizedBox(height: 4),
           Text(

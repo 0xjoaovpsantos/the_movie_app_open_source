@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_app_open_source/app/modules/home/widgets/list_horizontal_movies_widget.dart';
 import 'package:the_movie_app_open_source/app/utils/app_colors.dart';
 
 class DescriptionPage extends StatefulWidget {
@@ -69,10 +70,44 @@ class _DescriptionPageState extends State<DescriptionPage> {
                     ],
                   ),
                 ),
-              )
+              ),
+              Container(
+                height: 190,
+                child: ListView.builder(
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: MyList,
+                ),
+              ),
+              Container(
+                height: 1,
+                color: Colors.grey,
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget MyList(context, index) {
+    return Container(
+      width: 120,
+      child: Stack(
+        children: <Widget>[
+          Image.network(
+            "http://image.tmdb.org/t/p/original//gXKyT1YU5RWWPaE1je3ht58eUZr.jpg",
+            height: 180,
+          ),
+          Positioned(
+            top: 120,
+            child: Text(
+              "Actor",
+              style: TextStyle(color: Colors.white),
+            ),
+          )
+        ],
       ),
     );
   }
