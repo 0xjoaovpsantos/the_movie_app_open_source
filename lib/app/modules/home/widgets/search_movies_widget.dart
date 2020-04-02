@@ -17,10 +17,10 @@ class _SearchMoviesWidgetState extends State<SearchMoviesWidget> {
         child: TextField(
           decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
+                borderSide: BorderSide(color: AppColors.backgroundDescription),
               ),
               focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
+                borderSide: BorderSide(color: AppColors.backgroundDescription),
               ),
               hintText: "Search for movies",
               prefixIcon: Icon(Icons.search, color: Colors.grey)),

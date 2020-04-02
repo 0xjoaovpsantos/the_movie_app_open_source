@@ -11,51 +11,85 @@ class _ListHorizontalMoviesWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 12, top: 0, bottom: 0),
+      margin: EdgeInsets.only(top: 0, bottom: 0),
       child: Column(
         children: <Widget>[
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text("Popular Movies",
-                    style:
-                        TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
                 /*Icon(Icons.more_vert)*/
               ]),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            height: 240,
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: ListMovies),
+          Wrap(
+            spacing: 20,
+            children: <Widget>[
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+              ListMovies(),
+            ],
           ),
         ],
       ),
     );
   }
 
-  Widget ListMovies(context, index) {
+  Widget ListMovies() {
     return Container(
-      width: 120,
-      margin: EdgeInsets.only(right: 10),
-      child: Column(
+      //margin: EdgeInsets.all(2),
+      //margin: EdgeInsets.all(10),
+      child: Stack(
         children: <Widget>[
-          Image.network(
-              "http://image.tmdb.org/t/p/w500//5vHssUeVe25bMrof1HyaPyWgaP.jpg",
-              height: 180),
-          SizedBox(height: 4),
-          Text(
-            "John Wick",
-            style: TextStyle(fontSize: 10),
-            textAlign: TextAlign.center,
+          Column(
+            children: <Widget>[
+              Image.network(
+                "http://image.tmdb.org/t/p/w500//5vHssUeVe25bMrof1HyaPyWgaP.jpg",
+                height: 180,
+                width: 123,
+                fit: BoxFit.fill,
+              ),
+              SizedBox(height: 4),
+              Text(
+                "John Wick",
+                style: TextStyle(fontSize: 11, color: Colors.white),
+                textAlign: TextAlign.center,
+              )
+            ],
           ),
-          SizedBox(height: 4),
-          Text(
-            "2014-10-22",
-            style: TextStyle(fontSize: 10),
-            textAlign: TextAlign.center,
+          Positioned(
+            top: 146,
+            left: 28,
+            child: Container(
+              padding: EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  border: Border.all(color: Colors.white)),
+              child: Text(
+                "2014-10-22",
+                style: TextStyle(fontSize: 11, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+            ),
           )
         ],
       ),
