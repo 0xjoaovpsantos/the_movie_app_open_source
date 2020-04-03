@@ -12,7 +12,7 @@ class MovieRepository {
         "https://api.themoviedb.org/3/movie/upcoming?api_key=" +
             Constants.keyTheMovieAdb);
 
-    return response.data["results"]
+    return (response.data["results"] as List)
         .map((item) => Movie.fromJson(item))
         .toList();
   }
@@ -22,7 +22,7 @@ class MovieRepository {
         "https://api.themoviedb.org/3/movie/popular?api_key=" +
             Constants.keyTheMovieAdb);
 
-    return response.data["results"]
+    return (response.data["results"] as List)
         .map((item) => Movie.fromJson(item))
         .toList();
   }

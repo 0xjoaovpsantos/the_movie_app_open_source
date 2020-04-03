@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:the_movie_app_open_source/app/modules/home/home_controller.dart';
 import 'package:the_movie_app_open_source/app/modules/home/widgets/list_horizontal_movies_widget.dart';
 import 'package:the_movie_app_open_source/app/modules/home/widgets/category_movies_widget.dart';
 import 'package:the_movie_app_open_source/app/utils/app_colors.dart';
@@ -12,6 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  HomeController _controller = Modular.get<HomeController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +26,23 @@ class _HomePageState extends State<HomePage> {
         child: Column(children: <Widget>[
           CategoryMoviesWidget(),
           SizedBox(height: 20),
-          ListHorizontalMoviesWidget(),
+          Observer(builder: (context) {
+            if (_controller.upComingMovies == null) {
+              return Center(
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            } else if (_controller.upComingMovies.isEmpty) {
+              return Center(
+                child: Text("Verifique sua conexão com a internet!"),
+              );
+            } else {
+              return ListHorizontalMoviesWidget(
+                  movies: _controller.upComingMovies);
+            }
+          }),
         ]),
       )),
     );
