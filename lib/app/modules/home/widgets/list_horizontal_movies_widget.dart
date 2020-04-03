@@ -56,8 +56,7 @@ class _ListHorizontalMoviesWidgetState
 
   Widget ListMovies() {
     return Container(
-      //margin: EdgeInsets.all(2),
-      //margin: EdgeInsets.all(10),
+      margin: EdgeInsets.only(top: 20),
       child: Stack(
         children: <Widget>[
           Column(

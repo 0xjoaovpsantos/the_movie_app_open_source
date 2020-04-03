@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_app_open_source/app/modules/home/widgets/list_horizontal_movies_widget.dart';
-import 'package:the_movie_app_open_source/app/modules/home/widgets/search_movies_widget.dart';
+import 'package:the_movie_app_open_source/app/modules/home/widgets/category_movies_widget.dart';
 import 'package:the_movie_app_open_source/app/utils/app_colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,13 +16,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundDescription,
-      appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: AppColors.backgroundDescription,
-          title: SearchMoviesWidget()),
       body: SingleChildScrollView(
           child: Container(
         child: Column(children: <Widget>[
+          CategoryMoviesWidget(),
           SizedBox(height: 20),
           ListHorizontalMoviesWidget(),
         ]),
