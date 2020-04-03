@@ -7,10 +7,10 @@ class Movie {
   Movie({this.id, this.posterPath, this.title, this.releaseDate});
 
   Movie.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    posterPath = json['poster_path'];
-    title = json['title'];
-    releaseDate = json['release_date'];
+    id = json['id'] ?? "";
+    posterPath = json['poster_path'] ?? "";
+    title = json['title'] ?? "";
+    releaseDate = json['release_date'] ?? "";
   }
 
   Map<String, dynamic> toJson() {
