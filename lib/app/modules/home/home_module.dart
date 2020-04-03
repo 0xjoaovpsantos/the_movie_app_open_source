@@ -8,7 +8,7 @@ class HomeModule extends ChildModule {
   @override
   List<Bind> get binds => [
         //Controller
-        Bind((i) => HomeController()),
+        Bind((i) => HomeController(i.get<MovieRepository>())),
         //Repository
         Bind((i) => MovieRepository(i.get<Dio>())),
         //Outro

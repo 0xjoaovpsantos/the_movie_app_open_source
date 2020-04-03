@@ -9,38 +9,44 @@ part of 'home_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$HomeController on _HomeBase, Store {
-  final _$valueAtom = Atom(name: '_HomeBase.value');
+  final _$upComingMoviesAtom = Atom(name: '_HomeBase.upComingMovies');
 
   @override
-  int get value {
-    _$valueAtom.context.enforceReadPolicy(_$valueAtom);
-    _$valueAtom.reportObserved();
-    return super.value;
+  List<Movie> get upComingMovies {
+    _$upComingMoviesAtom.context.enforceReadPolicy(_$upComingMoviesAtom);
+    _$upComingMoviesAtom.reportObserved();
+    return super.upComingMovies;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.context.conditionallyRunInAction(() {
-      super.value = value;
-      _$valueAtom.reportChanged();
-    }, _$valueAtom, name: '${_$valueAtom.name}_set');
+  set upComingMovies(List<Movie> value) {
+    _$upComingMoviesAtom.context.conditionallyRunInAction(() {
+      super.upComingMovies = value;
+      _$upComingMoviesAtom.reportChanged();
+    }, _$upComingMoviesAtom, name: '${_$upComingMoviesAtom.name}_set');
   }
 
-  final _$_HomeBaseActionController = ActionController(name: '_HomeBase');
+  final _$popularMoviesAtom = Atom(name: '_HomeBase.popularMovies');
 
   @override
-  void increment() {
-    final _$actionInfo = _$_HomeBaseActionController.startAction();
-    try {
-      return super.increment();
-    } finally {
-      _$_HomeBaseActionController.endAction(_$actionInfo);
-    }
+  List<Movie> get popularMovies {
+    _$popularMoviesAtom.context.enforceReadPolicy(_$popularMoviesAtom);
+    _$popularMoviesAtom.reportObserved();
+    return super.popularMovies;
+  }
+
+  @override
+  set popularMovies(List<Movie> value) {
+    _$popularMoviesAtom.context.conditionallyRunInAction(() {
+      super.popularMovies = value;
+      _$popularMoviesAtom.reportChanged();
+    }, _$popularMoviesAtom, name: '${_$popularMoviesAtom.name}_set');
   }
 
   @override
   String toString() {
-    final string = 'value: ${value.toString()}';
+    final string =
+        'upComingMovies: ${upComingMovies.toString()},popularMovies: ${popularMovies.toString()}';
     return '{$string}';
   }
 }
