@@ -42,36 +42,40 @@ class _ListHorizontalMoviesWidgetState
   }
 
   Widget MoviePoster(Movie movie) {
-    return Container(
-      width: 122,
-      margin: EdgeInsets.only(top: 20),
-      child: Stack(
-        children: <Widget>[
-          Column(
+    return GestureDetector(
+        onTap: () {
+          Modular.to.pushNamed("/DescriptionMovie/" + movie.id.toString());
+        },
+        child: Container(
+          width: 122,
+          margin: EdgeInsets.only(top: 20),
+          child: Stack(
             children: <Widget>[
-              Image.network(
-                Constants.baseUrlPosterMovie + movie.posterPath,
-                height: 180,
-                width: 123,
-                fit: BoxFit.fill,
+              Column(
+                children: <Widget>[
+                  Image.network(
+                    Constants.baseUrlPosterMovie + movie.posterPath,
+                    height: 180,
+                    width: 123,
+                    fit: BoxFit.fill,
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    movie.title,
+                    style: TextStyle(fontSize: 11, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  Container(
+                    child: Text(
+                      movie.releaseDate,
+                      style: TextStyle(fontSize: 11, color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
               ),
-              SizedBox(height: 4),
-              Text(
-                movie.title,
-                style: TextStyle(fontSize: 11, color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
-              Container(
-                child: Text(
-                  movie.releaseDate,
-                  style: TextStyle(fontSize: 11, color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-              )
             ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 }

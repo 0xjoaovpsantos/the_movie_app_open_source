@@ -9,10 +9,23 @@ class DescriptionController = _DescriptionBase with _$DescriptionController;
 abstract class _DescriptionBase with Store {
   final DescriptionRepository _repository;
 
-  _DescriptionBase(this._repository) {
-    _repository.searchDescriptionMovie(1).then((value) => movie = value);
+  _DescriptionBase(this._repository);
+
+  @action
+  searchDescriptionMovie(int idMovie) {
+    _repository.searchDescriptionMovie(idMovie).then((value) => movie = value);
   }
 
   @observable
   DescriptionMovie movie;
+
+  @action
+  String genresToString() {
+    String genres = "";
+    movie.genres.forEach((genre) {
+      genres += genre.name + ", ";
+    });
+
+    return genres.substring(0, genres.length - 2);
+  }
 }

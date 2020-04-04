@@ -26,6 +26,29 @@ mixin _$DescriptionController on _DescriptionBase, Store {
     }, _$movieAtom, name: '${_$movieAtom.name}_set');
   }
 
+  final _$_DescriptionBaseActionController =
+      ActionController(name: '_DescriptionBase');
+
+  @override
+  dynamic searchDescriptionMovie(int idMovie) {
+    final _$actionInfo = _$_DescriptionBaseActionController.startAction();
+    try {
+      return super.searchDescriptionMovie(idMovie);
+    } finally {
+      _$_DescriptionBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String genresToString() {
+    final _$actionInfo = _$_DescriptionBaseActionController.startAction();
+    try {
+      return super.genresToString();
+    } finally {
+      _$_DescriptionBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     final string = 'movie: ${movie.toString()}';

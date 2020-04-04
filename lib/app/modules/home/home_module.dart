@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:the_movie_app_open_source/app/modules/description/description_module.dart';
 import 'package:the_movie_app_open_source/app/modules/home/home_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:the_movie_app_open_source/app/modules/home/home_page.dart';

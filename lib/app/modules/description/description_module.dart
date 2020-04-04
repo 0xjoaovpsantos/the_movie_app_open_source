@@ -17,7 +17,9 @@ class DescriptionModule extends ChildModule {
 
   @override
   List<Router> get routers => [
-        Router('/', child: (_, args) => DescriptionPage()),
+        Router('/:idMovie',
+            child: (_, args) =>
+                DescriptionPage(idMovie: int.parse(args.params["idMovie"]))),
       ];
 
   static Inject get to => Inject<DescriptionModule>.of();

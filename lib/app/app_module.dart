@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:the_movie_app_open_source/app/app_widget.dart';
 import 'package:the_movie_app_open_source/app/modules/description/description_module.dart';
+
 import 'package:the_movie_app_open_source/app/modules/home/home_module.dart';
 
 class AppModule extends MainModule {
@@ -13,7 +14,8 @@ class AppModule extends MainModule {
 
   @override
   List<Router> get routers => [
-        Router('/', module: DescriptionModule()),
+        Router('/', module: HomeModule()),
+        Router('/DescriptionMovie', module: DescriptionModule()),
       ];
 
   @override
