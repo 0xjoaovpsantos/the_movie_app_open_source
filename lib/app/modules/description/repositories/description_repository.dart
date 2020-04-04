@@ -8,10 +8,6 @@ class DescriptionRepository {
   DescriptionRepository(this._client);
 
   Future<DescriptionMovie> searchDescriptionMovie(int idMovie) async {
-    print(Constants.baseUrlDescriptionMovie +
-        idMovie.toString() +
-        "?apiKey=" +
-        Constants.keyTheMovieAdb);
     Response response = await _client.get(Constants.baseUrlDescriptionMovie +
         idMovie.toString() +
         "?api_key=" +
