@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:the_movie_app_open_source/app/models/movie.dart';
+import 'package:the_movie_app_open_source/app/modules/home/home_controller.dart';
 import 'package:the_movie_app_open_source/app/utils/constants.dart';
 
 class ListHorizontalMoviesWidget extends StatefulWidget {
@@ -13,6 +15,7 @@ class ListHorizontalMoviesWidget extends StatefulWidget {
 
 class _ListHorizontalMoviesWidgetState
     extends State<ListHorizontalMoviesWidget> {
+  HomeController _controller = Modular.get<HomeController>();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +25,7 @@ class _ListHorizontalMoviesWidgetState
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("Popular Movies",
+                Text(_controller.currentSectionDescription,
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,

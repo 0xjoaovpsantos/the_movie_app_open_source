@@ -10,13 +10,28 @@ abstract class _HomeBase with Store {
   final MovieRepository _repository;
 
   _HomeBase(this._repository) {
-    _repository.getMoviesUpComing().then((value) => upComingMovies = value);
+    _repository.getMoviesUpComing().then((value) {
+      upComingMovies = value;
+      updateSection("Upcoming Movies", upComingMovies);
+    });
     _repository.getMoviesPopular().then((value) => popularMovies = value);
   }
+
+  @observable
+  String currentSectionDescription;
+
+  @observable
+  List<Movie> currentListMovies;
 
   @observable
   List<Movie> upComingMovies;
 
   @observable
   List<Movie> popularMovies;
+
+  @action
+  void updateSection(String section, List<Movie> currentList) {
+    currentSectionDescription = section;
+    currentListMovies = currentList;
+  }
 }

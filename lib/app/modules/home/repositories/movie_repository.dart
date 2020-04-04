@@ -8,9 +8,8 @@ class MovieRepository {
   MovieRepository(this._client);
 
   Future<List<Movie>> getMoviesUpComing() async {
-    Response response = await _client.get(
-        "https://api.themoviedb.org/3/movie/upcoming?api_key=" +
-            Constants.keyTheMovieAdb);
+    Response response = await _client
+        .get(Constants.baseUrlUpComingMovies + Constants.keyTheMovieAdb);
 
     return (response.data["results"] as List)
         .map((item) => Movie.fromJson(item))
@@ -18,9 +17,8 @@ class MovieRepository {
   }
 
   Future<List<Movie>> getMoviesPopular() async {
-    Response response = await _client.get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=" +
-            Constants.keyTheMovieAdb);
+    Response response = await _client
+        .get(Constants.baseUrlPopularMovies + Constants.keyTheMovieAdb);
 
     return (response.data["results"] as List)
         .map((item) => Movie.fromJson(item))

@@ -27,20 +27,20 @@ class _HomePageState extends State<HomePage> {
           CategoryMoviesWidget(),
           SizedBox(height: 20),
           Observer(builder: (context) {
-            if (_controller.upComingMovies == null) {
+            if (_controller.currentListMovies == null) {
               return Center(
                 child: Container(
                   padding: EdgeInsets.all(10),
                   child: CircularProgressIndicator(),
                 ),
               );
-            } else if (_controller.upComingMovies.isEmpty) {
+            } else if (_controller.currentListMovies.isEmpty) {
               return Center(
                 child: Text("Verifique sua conexão com a internet!"),
               );
             } else {
               return ListHorizontalMoviesWidget(
-                  movies: _controller.upComingMovies);
+                  movies: _controller.currentListMovies);
             }
           }),
         ]),
