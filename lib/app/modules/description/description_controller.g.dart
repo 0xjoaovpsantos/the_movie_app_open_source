@@ -26,6 +26,23 @@ mixin _$DescriptionController on _DescriptionBase, Store {
     }, _$movieAtom, name: '${_$movieAtom.name}_set');
   }
 
+  final _$actorsAtom = Atom(name: '_DescriptionBase.actors');
+
+  @override
+  List<Actor> get actors {
+    _$actorsAtom.context.enforceReadPolicy(_$actorsAtom);
+    _$actorsAtom.reportObserved();
+    return super.actors;
+  }
+
+  @override
+  set actors(List<Actor> value) {
+    _$actorsAtom.context.conditionallyRunInAction(() {
+      super.actors = value;
+      _$actorsAtom.reportChanged();
+    }, _$actorsAtom, name: '${_$actorsAtom.name}_set');
+  }
+
   final _$_DescriptionBaseActionController =
       ActionController(name: '_DescriptionBase');
 
@@ -51,7 +68,7 @@ mixin _$DescriptionController on _DescriptionBase, Store {
 
   @override
   String toString() {
-    final string = 'movie: ${movie.toString()}';
+    final string = 'movie: ${movie.toString()},actors: ${actors.toString()}';
     return '{$string}';
   }
 }

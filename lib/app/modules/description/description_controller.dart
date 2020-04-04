@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import 'package:the_movie_app_open_source/app/models/actor.dart';
 import 'package:the_movie_app_open_source/app/models/description_movie.dart';
 import 'package:the_movie_app_open_source/app/modules/description/repositories/description_repository.dart';
 
@@ -14,10 +15,14 @@ abstract class _DescriptionBase with Store {
   @action
   searchDescriptionMovie(int idMovie) {
     _repository.searchDescriptionMovie(idMovie).then((value) => movie = value);
+    _repository.searchActors(idMovie).then((value) => actors = value);
   }
 
   @observable
   DescriptionMovie movie;
+
+  @observable
+  List<Actor> actors;
 
   @action
   String genresToString() {

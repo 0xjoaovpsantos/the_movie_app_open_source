@@ -95,14 +95,27 @@ class _DescriptionPageState extends State<DescriptionPage> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 190,
-                      child: ListView.builder(
-                        itemCount: 10,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: MyList,
-                      ),
+                    Observer(
+                      builder: (context) {
+                        if (_controller.actors == null) {
+                          return Center(
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        } else {
+                          return Container(
+                            height: 190,
+                            child: ListView.builder(
+                              itemCount: _controller.actors.length - 1,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: MyList,
+                            ),
+                          );
+                        }
+                      },
                     ),
                     Container(
                       height: 1,
@@ -132,14 +145,20 @@ class _DescriptionPageState extends State<DescriptionPage> {
       child: Stack(
         children: <Widget>[
           Image.network(
-            "http://image.tmdb.org/t/p/original//gXKyT1YU5RWWPaE1je3ht58eUZr.jpg",
+            Constants.baseUrlBackdropImg +
+                _controller.actors[index].profilePath,
             height: 180,
+            fit: BoxFit.fill,
           ),
           Positioned(
-            top: 120,
-            child: Text(
-              "Actor",
-              style: TextStyle(color: Colors.white),
+            top: 150,
+            child: Container(
+              width: 120,
+              child: Text(
+                _controller.actors[index].name,
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
             ),
           )
         ],
