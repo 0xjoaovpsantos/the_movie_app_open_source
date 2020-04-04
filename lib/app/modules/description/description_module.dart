@@ -8,7 +8,7 @@ class DescriptionModule extends ChildModule {
   @override
   List<Bind> get binds => [
         //Controller
-        Bind((i) => DescriptionController()),
+        Bind((i) => DescriptionController(i.get<DescriptionRepository>())),
         //Repository
         Bind((i) => DescriptionRepository(i.get<Dio>())),
         //Others

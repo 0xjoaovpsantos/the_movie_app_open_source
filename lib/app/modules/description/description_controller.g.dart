@@ -9,39 +9,26 @@ part of 'description_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$DescriptionController on _DescriptionBase, Store {
-  final _$valueAtom = Atom(name: '_DescriptionBase.value');
+  final _$movieAtom = Atom(name: '_DescriptionBase.movie');
 
   @override
-  int get value {
-    _$valueAtom.context.enforceReadPolicy(_$valueAtom);
-    _$valueAtom.reportObserved();
-    return super.value;
+  DescriptionMovie get movie {
+    _$movieAtom.context.enforceReadPolicy(_$movieAtom);
+    _$movieAtom.reportObserved();
+    return super.movie;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.context.conditionallyRunInAction(() {
-      super.value = value;
-      _$valueAtom.reportChanged();
-    }, _$valueAtom, name: '${_$valueAtom.name}_set');
-  }
-
-  final _$_DescriptionBaseActionController =
-      ActionController(name: '_DescriptionBase');
-
-  @override
-  void increment() {
-    final _$actionInfo = _$_DescriptionBaseActionController.startAction();
-    try {
-      return super.increment();
-    } finally {
-      _$_DescriptionBaseActionController.endAction(_$actionInfo);
-    }
+  set movie(DescriptionMovie value) {
+    _$movieAtom.context.conditionallyRunInAction(() {
+      super.movie = value;
+      _$movieAtom.reportChanged();
+    }, _$movieAtom, name: '${_$movieAtom.name}_set');
   }
 
   @override
   String toString() {
-    final string = 'value: ${value.toString()}';
+    final string = 'movie: ${movie.toString()}';
     return '{$string}';
   }
 }
