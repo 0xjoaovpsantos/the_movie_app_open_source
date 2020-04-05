@@ -31,48 +31,63 @@ class _DescriptionPageState extends State<DescriptionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundDescription,
-      body: Observer(
-        builder: (context) {
-          if (_controller.movie == null) {
-            return Center(
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: CircularProgressIndicator(),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: <Widget>[
+              Observer(
+                builder: (context) {
+                  if (_controller.movie == null) {
+                    return Center(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        child: CircularProgressIndicator(),
+                      ),
+                    );
+                  } else {
+                    return HeaderDescriptionWidget();
+                  }
+                },
               ),
-            );
-          } else {
-            return SingleChildScrollView(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  children: <Widget>[
-                    HeaderDescriptionWidget(),
-                    Observer(
-                      builder: (context) {
-                        if (_controller.actors == null) {
-                          return Center(
-                            child: Container(
-                              padding: EdgeInsets.all(20),
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
-                        } else {
-                          return ListActors(actors: _controller.actors);
-                        }
-                      },
-                    ),
-                    Container(
-                      height: 1,
-                      color: Colors.grey,
-                    ),
-                    FooterDescriptionWidget(
-                        overview: _controller.movie.overview)
-                  ],
-                ),
+              Observer(
+                builder: (context) {
+                  if (_controller.actors == null) {
+                    return Center(
+                      child: Container(
+                        padding: EdgeInsets.all(20),
+                        child: CircularProgressIndicator(),
+                      ),
+                    );
+                  } else {
+                    return ListActors(actors: _controller.actors);
+                  }
+                },
               ),
-            );
-          }
-        },
+              Observer(builder: (context) {
+                if (_controller.movie == null) {
+                  return Center(
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                } else {
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        height: 1,
+                        color: Colors.grey,
+                      ),
+                      FooterDescriptionWidget(
+                          overview: _controller.movie.overview)
+                    ],
+                  );
+                }
+              })
+            ],
+          ),
+        ),
       ),
     );
   }
