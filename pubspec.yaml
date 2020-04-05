@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  skeleton_text: ^1.0.0
   dio: ^3.0.9
   flutter_mobx: ^1.1.0
   mobx: ^1.1.1

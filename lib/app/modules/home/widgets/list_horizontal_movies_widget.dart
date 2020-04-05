@@ -47,33 +47,29 @@ class _ListHorizontalMoviesWidgetState
           Modular.to.pushNamed("/DescriptionMovie/" + movie.id.toString());
         },
         child: Container(
-          width: 122,
+          width: 123,
           margin: EdgeInsets.only(top: 20),
-          child: Stack(
+          child: Column(
             children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Image.network(
-                    Constants.baseUrlPosterMovie + movie.posterPath,
-                    height: 180,
-                    width: 123,
-                    fit: BoxFit.fill,
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    movie.title,
-                    style: TextStyle(fontSize: 11, color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  Container(
-                    child: Text(
-                      movie.releaseDate,
-                      style: TextStyle(fontSize: 11, color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  )
-                ],
+              Image.network(
+                Constants.baseUrlPosterMovie + movie.posterPath,
+                height: 180,
+                width: 123,
+                fit: BoxFit.fill,
               ),
+              SizedBox(height: 4),
+              Text(
+                movie.title,
+                style: TextStyle(fontSize: 11, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              Container(
+                child: Text(
+                  movie.releaseDate,
+                  style: TextStyle(fontSize: 11, color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+              )
             ],
           ),
         ));
