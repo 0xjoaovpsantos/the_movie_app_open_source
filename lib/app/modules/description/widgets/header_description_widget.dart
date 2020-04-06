@@ -30,9 +30,10 @@ class _HeaderDescriptionWidgetState extends State<HeaderDescriptionWidget> {
             child: Column(
               children: <Widget>[
                 Row(
+                  mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Text(
-                      _controller.movie.title,
+                      _controller.movie.title, //
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

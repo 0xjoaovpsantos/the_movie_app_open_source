@@ -2,13 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:the_movie_app_open_source/app/models/movie.dart';
-import 'package:the_movie_app_open_source/app/modules/home/home_controller.dart';
 import 'package:the_movie_app_open_source/app/utils/constants.dart';
 
 class ListHorizontalMoviesWidget extends StatefulWidget {
+  final String currentSection;
   final List<Movie> movies;
 
-  const ListHorizontalMoviesWidget({Key key, this.movies}) : super(key: key);
+  const ListHorizontalMoviesWidget(
+      {Key key, @required this.currentSection, @required this.movies})
+      : super(key: key);
   @override
   _ListHorizontalMoviesWidgetState createState() =>
       _ListHorizontalMoviesWidgetState();
@@ -16,28 +18,28 @@ class ListHorizontalMoviesWidget extends StatefulWidget {
 
 class _ListHorizontalMoviesWidgetState
     extends State<ListHorizontalMoviesWidget> {
-  HomeController _controller = Modular.get<HomeController>();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 0, bottom: 0),
-      child: Column(
-        children: <Widget>[
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(_controller.currentSectionDescription,
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-                /*Icon(Icons.more_vert)*/
-              ]),
-          Wrap(
-            spacing: 20,
-            children: widget.movies.map((movie) => MoviePoster(movie)).toList(),
-          ),
-        ],
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Container(
+        margin: EdgeInsets.only(top: 0, bottom: 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(widget.currentSection,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                )),
+            Wrap(
+              spacing: 20,
+              children:
+                  widget.movies.map((movie) => MoviePoster(movie)).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

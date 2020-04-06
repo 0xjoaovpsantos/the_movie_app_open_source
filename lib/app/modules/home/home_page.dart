@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
               );
             } else {
               return ListHorizontalMoviesWidget(
+                  currentSection: _controller.currentSectionDescription,
                   movies: _controller.currentListMovies);
             }
           }),
