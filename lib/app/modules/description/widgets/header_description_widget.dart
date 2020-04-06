@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:the_movie_app_open_source/app/modules/description/description_controller.dart';
@@ -16,14 +17,12 @@ class _HeaderDescriptionWidgetState extends State<HeaderDescriptionWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          height: 280,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(Constants.baseUrlBackdropImg +
-                      _controller.movie.backdropPath),
-                  fit: BoxFit.fill)),
-        ),
+        CachedNetworkImage(
+            imageUrl:
+                Constants.baseUrlBackdropImg + _controller.movie.backdropPath,
+            height: 280,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.fill),
         Container(
           color: AppColors.posterMovie,
           child: Container(

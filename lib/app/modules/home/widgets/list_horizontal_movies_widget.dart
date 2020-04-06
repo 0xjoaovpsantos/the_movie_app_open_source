@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:the_movie_app_open_source/app/models/movie.dart';
@@ -51,11 +52,11 @@ class _ListHorizontalMoviesWidgetState
           margin: EdgeInsets.only(top: 20),
           child: Column(
             children: <Widget>[
-              Image.network(
-                Constants.baseUrlPosterMovie + movie.posterPath,
+              CachedNetworkImage(
+                imageUrl: Constants.baseUrlPosterMovie + movie.posterPath,
+                fit: BoxFit.fill,
                 height: 180,
                 width: 123,
-                fit: BoxFit.fill,
               ),
               SizedBox(height: 4),
               Text(

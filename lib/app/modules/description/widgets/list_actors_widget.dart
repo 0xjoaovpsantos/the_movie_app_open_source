@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:the_movie_app_open_source/app/models/actor.dart';
 import 'package:the_movie_app_open_source/app/utils/constants.dart';
@@ -30,9 +31,11 @@ class _ListActorsState extends State<ListActors> {
       width: 120,
       child: Stack(
         children: <Widget>[
-          Image.network(
-            Constants.baseUrlBackdropImg + widget.actors[index].profilePath,
+          CachedNetworkImage(
+            imageUrl:
+                Constants.baseUrlBackdropImg + widget.actors[index].profilePath,
             height: 180,
+            width: 120,
             fit: BoxFit.fill,
           ),
           Positioned(
