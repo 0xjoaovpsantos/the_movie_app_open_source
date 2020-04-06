@@ -3,7 +3,10 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:the_movie_app_open_source/app/modules/description/description_controller.dart';
 import 'package:the_movie_app_open_source/app/modules/description/widgets/footer_description_widget.dart';
+import 'package:the_movie_app_open_source/app/modules/description/widgets/footer_description_widget_skeleton.dart';
+import 'package:the_movie_app_open_source/app/modules/description/widgets/header_description_skeleton_widget.dart';
 import 'package:the_movie_app_open_source/app/modules/description/widgets/header_description_widget.dart';
+import 'package:the_movie_app_open_source/app/modules/description/widgets/list_actors_skeleton_widget.dart';
 import 'package:the_movie_app_open_source/app/modules/description/widgets/list_actors_widget.dart';
 import 'package:the_movie_app_open_source/app/modules/home/widgets/list_horizontal_movies_widget.dart';
 import 'package:the_movie_app_open_source/app/utils/app_colors.dart';
@@ -39,12 +42,7 @@ class _DescriptionPageState extends State<DescriptionPage> {
               Observer(
                 builder: (context) {
                   if (_controller.movie == null) {
-                    return Center(
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
+                    return HeaderDescriptionSkeletonWidget();
                   } else {
                     return HeaderDescriptionWidget();
                   }
@@ -53,36 +51,22 @@ class _DescriptionPageState extends State<DescriptionPage> {
               Observer(
                 builder: (context) {
                   if (_controller.actors == null) {
-                    return Center(
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
+                    return ListActorsSkeletonWidget();
                   } else {
                     return ListActors(actors: _controller.actors);
                   }
                 },
               ),
+              Container(
+                height: 1,
+                color: Colors.grey,
+              ),
               Observer(builder: (context) {
                 if (_controller.movie == null) {
-                  return Center(
-                    child: Container(
-                      padding: EdgeInsets.all(20),
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
+                  return FooterDescriptionWidgetSkeleton();
                 } else {
-                  return Column(
-                    children: <Widget>[
-                      Container(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                      FooterDescriptionWidget(
-                          overview: _controller.movie.overview)
-                    ],
-                  );
+                  return FooterDescriptionWidget(
+                      overview: _controller.movie.overview);
                 }
               })
             ],
