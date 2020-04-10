@@ -1,16 +1,21 @@
-# the_movie_app_open_source
+# The Movie App Open Source
 
-A new Flutter project.
+Esse projeto foi desenvolvido com o <a href="https://github.com/Flutterando/modular" target="_blank">Modular</a>, tendo o <a href="https://medium.com/flutter-comunidade-br/flutter-com-mobx-c0f4762fbd1a" target="_blank">MobX</a> como gerenciador de estado e o <a href="https://github.com/Flutterando/slidy" target="_blank">Slidy</a> como CLI.
 
-## Getting Started
+Para padronização de commits, foi utilizado o conceito de <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank">Conventional Commits</a>
 
-This project is a starting point for a Flutter application.
+Link da API que foi usada no projeto: https://www.themoviedb.org/
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<p align="center">
+  <video width="320" height="240" controls>
+    <source src="assets/the-movie-adb-open-source.mp4" type="video/mp4">
+  </video>
+  <img src="assets/screenshot1.png" width="200">
+  <img src="assets/screenshot2.png" width="200"> 
+</p>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Flutter
+
+- <a href="https://flutter.dev/" target="_blank">Flutter.dev</a>
