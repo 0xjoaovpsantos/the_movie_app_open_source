@@ -9,11 +9,9 @@ Link da API que foi usada no projeto: https://www.themoviedb.org/
 ## Screenshots
 
 <p align="center">
-  <video width="320" height="240" controls>
-    <source src="assets/the-movie-adb-open-source.mp4" type="video/mp4">
-  </video>
-  <img src="assets/screenshot1.png" width="200">
-  <img src="assets/screenshot2.png" width="200"> 
+  <img src="assets/video1.gif" width="200">
+  <img src="assets/video2.gif" width="200">
+  <img src="assets/video3.gif" width="200">
 </p>
 
 ## Flutter
