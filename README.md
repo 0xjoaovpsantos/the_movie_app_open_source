@@ -7,6 +7,8 @@
     src="https://github.com/joaovictorpsantos/the_movie_app_open_source/blob/master/assets/screenshot1.png?raw=true" width="180px"/>
 	<img alt="Flutter app" 
     src="https://github.com/joaovictorpsantos/the_movie_app_open_source/blob/master/assets/screenshot2.png?raw=true" width="180px"/>
+    <img alt="Flutter app" 
+    src="https://github.com/joaovictorpsantos/the_movie_app_open_source/blob/master/assets/screenshot3.png?raw=true" width="180px"/>
 </h3>
 
 <blockquote align="center">
