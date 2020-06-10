@@ -1,6 +1,30 @@
-<h2 align="center">
-   The Movie App Open Source
-</h2>
+# The Movie App Open Source
+
+> Aplicativo que consulta a API de filmes do The Movie ADB
+
+<a href="https://github.com/joaovictorpsantos">
+<img alt="Autor" src="https://img.shields.io/badge/autor-JoãoVictorPereiraSantos-7159c1?style=flat-square">
+</a>
+
+<a href="#">
+<img alt="Linguagens" src="https://img.shields.io/github/languages/count/joaovictorpsantos/the_movie_app_open_source?color=7159c1&style=flat-square">
+</a>
+
+<a href="https://github.com/joaovictorpsantos/the_movie_app_open_source/stargazers">
+<img alt="Stars" src="https://img.shields.io/github/stars/joaovictorpsantos/the_movie_app_open_source?color=7159c1&style=flat-square">
+</a>
+
+<a href="https://github.com/joaovictorpsantos/the_movie_app_open_source/network/members">
+<img alt="Forks" src="https://img.shields.io/github/forks/joaovictorpsantos/the_movie_app_open_source?color=7159c1&style=flat-square">
+</a>
+
+<a href="#">
+<img alt="Tamanho do código em bytes" src="https://img.shields.io/github/languages/code-size/joaovictorpsantos/the_movie_app_open_source?color=7159c1&style=flat-square">
+</a>
+
+<a href="https://github.com/joaovictorpsantos/the_movie_app_open_source/commits/master">
+<img alt="Commits" src="https://img.shields.io/github/last-commit/joaovictorpsantos/the_movie_app_open_source?color=7159c1&style=flat-square">
+</a>
 
 <h3 align="center">
 <img alt="Flutter app" 
